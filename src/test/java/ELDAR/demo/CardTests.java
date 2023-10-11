@@ -23,7 +23,7 @@ public class CardTests {
 	}
 
 	@Test
-	public void CardInformationTest() {
+	public void cardInformationTest() {
 		assertEquals("Card Number: 1111222233334444\n" +
 						"Card Holder: FRANCISCO PEDUTO\n" +
 						"Expiration Date: " + LocalDateTime.of(2025,1,1,1,1,1).toString(),
@@ -31,22 +31,22 @@ public class CardTests {
 	}
 
 	@Test
-	public void ValidOperationTest() {
+	public void validOperationTest() {
 		assertTrue(visa.validOperation((float) 1000));
 	}
 
 	@Test
-	public void ValidCardTest() {
+	public void validCardTest() {
 		assertTrue(visa.validCard());
 	}
 
 	@Test
-	public void DifferentCardsTest() {
+	public void differentCardsTest() {
 		assertFalse(visa.isDifferentTo(visa));
 	}
 
 	@Test
-	public void InterestRateTest() {
+	public void interestRateTest() {
 		assertEquals("VISA: 2.3" , visa.getBrand() + ": " + visa.interestRate().toString());
 	}
 
