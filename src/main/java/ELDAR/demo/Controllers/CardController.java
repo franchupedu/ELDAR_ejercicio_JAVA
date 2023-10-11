@@ -15,12 +15,9 @@ public class CardController {
     CardService cardService;
 
     @PostMapping(value="/information", consumes = "application/json", produces = "application/json")
-    public CardDTO consultOperation(@RequestBody InformationRequestDTO informationRequestDTO) {
-        Card card = cardService.returnCard(informationRequestDTO.cardName);
-        Float interestRate = card.interestRate();
-        String brand = card.getBrand();
-        CardDTO cardDTO = new CardDTO(interestRate, brand, informationRequestDTO.amount);
-        return cardDTO;
+    public CardDTO consultInformation(@RequestBody InformationRequestDTO informationRequestDTO) {
+        Card card = cardService.returnCard(informationRequestDTO.brand);
+        return new CardDTO(card.interestRate(), card.getBrand(), informationRequestDTO.amount);
     }
 
 }
